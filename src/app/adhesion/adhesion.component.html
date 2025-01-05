@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Gestion des Adhésions</h2>
+    <form (ngSubmit)="ajouterAdherent()">
+      <input type="text" placeholder="Nom" [(ngModel)]="nouvelAdherent.nom" name="nom" required>
+      <input type="number" placeholder="Cotisation" [(ngModel)]="nouvelAdherent.cotisation" name="cotisation" required>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let adherent of adherents">
+        {{ adherent.nom }} - Cotisation : {{ adherent.cotisation }} €
+      </li>
+    </ul>
+  </div>
+  

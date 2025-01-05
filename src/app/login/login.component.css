@@ -1,0 +1,129 @@
+/* Styles généraux pour la page de login */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f9;
+    position: relative; /* Nécessaire pour positionner le losange */
+    overflow: hidden; /* Assure que le losange ne dépasse pas */
+  }
+  
+  /* Section login */
+  .login {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 1; /* Assure que le contenu reste au-dessus */
+  }
+  
+  .app-logo {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style des champs de saisie */
+  .input-group-text {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid #007bff;
+   
+  }
+  
+  /* Style des champs de saisie */
+.form-control {
+    height: 45px; /* Réduit la hauteur du champ de saisie */
+    padding: 0.5rem; /* Réduit l'espace intérieur (padding) */
+    font-size: 0.875rem; /* Taille de la police réduite */
+    border-radius: 0.25rem; /* Garde les coins arrondis */
+    width: 300px; /* Réduit la largeur du champ de saisie */
+    margin: 0 auto; /* Centre les champs de saisie horizontalement */
+}
+
+/* Effet de focus sur les champs de saisie */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+  /* Style du bouton réduit et centré */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 50px; /* Conserve les extrémités arrondies */
+    padding: 0.5rem 1.2rem; /* Ajustement des marges internes pour réduire le bouton */
+    font-size: 1rem; /* Taille de police standard */
+    font-weight: bold;
+    width: 200px; /* La largeur s'ajuste automatiquement au contenu */
+    min-width: 120px; /* Largeur minimale */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    margin: 0 auto; /* Centre horizontalement le bouton dans son conteneur */
+    display: block; /* S'assure que le bouton est un bloc pour le centrage */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Effet fluide */
+}
+
+/* Effet au survol */
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: scale(1.05); /* Légère mise en avant */
+}
+
+/* Effet de focus */
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+  /* Lien pour le mot de passe oublié */
+.text-center {
+  color: #007bff; /* Bleu clair */
+  text-decoration: none; /* Pas de soulignement par défaut */
+}
+
+.text-center:hover {
+  text-decoration: underline; /* Souligner le texte au survol */
+  cursor: pointer; /* Change le curseur en main lorsqu'on survole le lien */
+}
+  /* Espacement et alignement */
+  .d-grid {
+    margin-top: 1rem;
+  }
+  
+  .text-center {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Trapèze vert à gauche */
+  
+.green-trapezoid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px; /* Largeur totale */
+    height: 100%; /* Prend toute la hauteur de la page */
+    background-color: #28a745; /* Couleur verte */
+   clip-path: polygon(0 0, 100% 0, 30% 100%, 0 150%); /* Forme de trapèze */
+   z-index: 0; /* Assure que le trapèze est en arrière-plan */
+  }
+  @media (max-width: 768px) {
+    .green-trapezoid {
+        width: 200px;
+    }
+}
+.green-trapezoid {
+    animation: slideIn 1.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

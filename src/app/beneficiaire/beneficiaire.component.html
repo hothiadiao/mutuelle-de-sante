@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Gestion des Bénéficiaires</h2>
+    <ul>
+      <li *ngFor="let adherent of adherents">
+        <strong>{{ adherent.nom }}</strong>
+        <ul>
+          <li *ngFor="let beneficiaire of adherent.beneficiaires">{{ beneficiaire }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
