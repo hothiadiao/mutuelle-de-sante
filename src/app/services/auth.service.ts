@@ -19,8 +19,8 @@ export class AuthService {
 
   login(email: string, password: string): boolean {
     const validUsers = [
-      { email: 'directeur@ensitech.com', password: 'directeur1234' },
-      { email: 'responsable@ensitech.com', password: 'responsable1234' },
+      { email: 'responsablecmu@gmail.com', password: 'cmu12345' },
+      { email: 'agentcmu@gmail.com', password: 'agentcmu1234' },
     ];
     const user = validUsers.find(
       (u) => u.email === email && u.password === password

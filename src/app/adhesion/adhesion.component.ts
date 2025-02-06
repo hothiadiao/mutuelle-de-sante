@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { GestionService } from '../services/gestion.service';
 
 @Component({
@@ -23,3 +23,101 @@ export class AdhesionComponent implements OnInit {
     }
   }
 }
+*/
+/*
+import { Component, OnInit } from '@angular/core';
+import { GestionService } from '../services/gestion.service';
+
+@Component({
+  selector: 'app-adhesion',
+  templateUrl: './adhesion.component.html',
+  styleUrls: ['./adhesion.component.css']
+})
+export class AdhesionComponent implements OnInit {
+
+  /*
+  adherents: { id: number; nom: string; cotisation: number; beneficiaires: string[] }[] = [];
+
+  constructor(private gestionService: GestionService) {}
+
+  ngOnInit(): void {
+    this.adherents = this.gestionService.getAdherents();
+  }
+   
+  
+}
+ */
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+
+declare var window: any;  // Déclare l'objet window pour utiliser Bootstrap Modal
+
+@Component({
+  selector: 'app-adhesion',
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule,NavbarComponent], // Assurez-vous que FormsModule est bien importé
+  templateUrl: './adhesion.component.html',
+  styleUrls: ['./adhesion.component.css']
+})
+export class AdhesionComponent implements OnInit {
+  selectedAdhesion: any = { matricule: '', nom: '', prenom: '', age: '', montantAdhesion: null }; 
+  // Liste des adhésions
+  adhesionList = [
+    { id: 1, matricule: 'ET101', nom: 'Adeline ', prenom: 'Ndiaye', age: '18 ans', montantAdhesion: 50000 },
+    { id: 2, matricule: 'ET102', nom: 'Faye ', prenom: 'Jane', age: '40 ans', montantAdhesion: 60000 },
+  ];
+
+  constructor() { }
+
+  ngOnInit(): void {}
+
+  // Méthode pour ajouter un nouvel adhérent
+  createAdhesion(adhesion: any): void {
+    const newAdhesion = { ...adhesion, id: this.adhesionList.length + 1 }; // Assignation d'un nouvel ID
+    this.adhesionList.push(newAdhesion);
+    this.resetSelectedAdhesion(); // Réinitialisation après création
+  }
+
+  // Méthode pour éditer un étudiant existant
+  editAdhesion(adhesion: any): void {
+    this.selectedAdhesion = { ...adhesion }; // Crée une copie de l'objet étudiant pour modification
+  }
+
+  // Méthode pour mettre à jour un étudiant existant
+  updateAdhesion(): void {
+    if (this.selectedAdhesion) {
+      const index = this.adhesionList.findIndex(e => e.id === this.selectedAdhesion.id);
+      if (index !== -1) {
+        this.adhesionList[index] = { ...this.selectedAdhesion }; // Mise à jour de l'étudiant
+      }
+      this.resetSelectedAdhesion(); // Réinitialisation après mise à jour
+    }
+  }
+
+  // Méthode pour supprimer un étudiant
+  deleteAdhesion(id: number): void {
+    this.adhesionList = this.adhesionList.filter(adhesion => adhesion.id !== id);
+  }
+
+  // Réinitialise la sélection d'étudiant pour l'ajout ou l'édition
+  resetSelectedAdhesion(): void {
+    this.selectedAdhesion = { matricule: '', nom: '', prenom: '', age: '', montantAdhesion: null };
+  }
+
+  // Méthode pour ouvrir la modale
+  
+  openModal(): void {
+    const modal = new window.bootstrap.Modal(document.getElementById('adhesion'));
+    modal.show();
+  }
+
+  // Méthode pour fermer la modale
+  closeModal(): void {
+    const modal = new window.bootstrap.Modal(document.getElementById('adhesion'));
+    modal.hide();
+  }
+}
+

@@ -1,0 +1,30 @@
+<nav class="navbar">
+    <ul class="nav flex-column">
+        <!-- Logo dans la liste -->
+        <li class="nav-item logo-container">
+            <img src="../assets/img/logo.jpeg" alt="Logo" class="navbar-logo">
+            <!--<span class="navbar-brand">Mutuelle de Santé</span>-->
+        </li>
+
+        <!-- Liens de navigation -->
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Accueil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/adhesion" routerLinkActive="active">Adhésions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/beneficiaire" routerLinkActive="active">Bénéficiaires</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/cotisation" routerLinkActive="active">Cotisations</a>
+        </li>
+    </ul>
+
+    <!-- Bouton déconnexion -->
+    <div class="logout-container">
+        <button class="logout-btn" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Se déconnecter
+        </button>
+    </div>
+</nav>
